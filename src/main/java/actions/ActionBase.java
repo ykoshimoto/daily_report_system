@@ -178,6 +178,15 @@ public abstract class ActionBase {
         return request.getParameter(key.getValue());
     }
 
+    /**
+     * リクエストスコープにパラメータを設定する
+     * @param key パラメータ名
+     * @param value パラメータの値
+     */
+    protected <V> void putRequestScope(AttributeConst key, V value) {
+        request.setAttribute(key.getValue(), value);
+    }
+
     /*
      * セッションスコープから指定されたパラメータの値を取得し、返却する
      * @param key パラメータ名
