@@ -55,7 +55,11 @@ public class AuthAction extends ActionBase {
         forward(ForwardConst.FW_LOGIN);
     }
 
-
+    /**
+     * ログイン処理
+     * @throws ServletException
+     * @throws IOException
+     */
     public void login() throws ServletException, IOException{
 
         String code = getRequestParam(AttributeConst.EMP_CODE);
@@ -93,7 +97,19 @@ public class AuthAction extends ActionBase {
 
     }
 
-
+    /**
+     * ログアウト処理
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void logout() throws ServletException, IOException{
+        //セッションからログイン従業員のパラメータ削除
+        removeSessionScope(AttributeConst.LOGIN_EMP);
+        //セッションにログアウト時のフラッシュメッセージ追加
+        putSessionScope(AttributeConst.FLUSH, MessageConst.I_LOGOUT.getMessage());
+        //ログイン画面にリダイレクト
+        redirect(ForwardConst.ACT_AUTH, ForwardConst.CMD_SHOW_LOGIN);
+    }
 
 
 }
