@@ -29,6 +29,6 @@
 <textarea name="${AttributeConst.REP_CONTENT.getValue()}" rows="10" cols="50">${report.content}</textarea>
 <br /><br />
 
-<input type="hidden" name="${AttributeConst.REP_ID.getValue()}" value="{report.id}" />
-<input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="{_token}" />
+<input type="hidden" name="${AttributeConst.REP_ID.getValue()}" value="${report.id}" />
+<input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
 <button type="submit">投稿</button>
